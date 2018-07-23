@@ -8,8 +8,7 @@
     [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">
       <a routerLink="/" style="margin-left:25%;">
-        <!-- <img style="border-radius: 50%;" src="../../assets/Images/oms-text.png" /> -->
-        OMS
+        <img style="width: 65%;" src="../../assets/Images/oms_new.png" />
       </a>
     </mat-toolbar>
     <mat-nav-list>
@@ -29,7 +28,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span style="flex: 1 1 auto;"></span>
-      <button class="DisplayUserInfo" mat-button (mouseover)="OpenUserMenu()" 
+      <button class="DisplayUserInfo" mat-button (mouseover)="OpenUserMenu()" style="text-transform: capitalize;"
       [matMenuTriggerFor]="usermenu">{{authService.GetUserDisplayName()}}
       <mat-icon>expand_more</mat-icon>
       </button>
