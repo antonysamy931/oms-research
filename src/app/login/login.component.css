@@ -1,0 +1,27 @@
+.login{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding-top: 8%;
+    padding-bottom: 40px;
+}
+
+.login-card{    
+    width: 100%;
+    max-width: 450px;
+    padding: 15px;
+    margin: auto;
+}
+
+.mat-form-field{
+    width: 100%;
+}
+.login-title{
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding-top: 20px;
+}
+.mat-card-actions{
+    padding-bottom: 5% !important;
+}

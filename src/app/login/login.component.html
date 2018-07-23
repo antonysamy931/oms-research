@@ -1,0 +1,47 @@
+<div class="login">
+    <div class="login-card">
+    <mat-card style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">    
+      <mat-card-header>
+        <mat-card-title>
+          <div style="width: 360px; height: 150px;">
+            <img src="../../assets/images/OMS.png" width="50%"/>
+          </div>
+          <div class="login-title">
+              <span>Welcome! please sign in</span>
+          </div>
+          
+        </mat-card-title>  
+      </mat-card-header>  
+      <mat-card-content>    
+        <mat-form-field>
+          <input matInput placeholder="Enter your username" [formControl]="username" 
+          [(ngModel)]="loginUser.UserName" required />
+          <mat-error *ngIf="username.invalid && username.hasError('required')">Username is required.</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput placeholder="Enter your password" [formControl]="password"
+          [(ngModel)]="loginUser.Password" [type]="hide ? 'password' : 'text'" required />
+          <mat-icon style="cursor:pointer;" matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          <mat-error *ngIf="password.invalid && password.hasError('required')">Password is required.</mat-error>
+        </mat-form-field>
+        <div>
+          <div style="width:40%; float: left;" id="captcha-element"></div>
+          <mat-icon style="cursor: pointer; margin-top: 6%; float: left;" (click)="LoadCaptcha()">refresh</mat-icon>
+        </div>      
+        <mat-form-field>        
+          <input matInput placeholder="Enter Captcha" [formControl]="captcha" 
+          [(ngModel)]="loginUser.Captcha" required />
+          <mat-error *ngIf="captcha.invalid && captcha.hasError('required')">Enter captcha value.</mat-error>        
+        </mat-form-field>      
+      </mat-card-content>  
+      <mat-card-actions>
+        <button style="width:93%;" mat-raised-button color="primary" 
+        [disabled]="username.invalid || password.invalid || captcha.invalid"
+        (click)="Login()">Login</button>
+        <button color="primary" style="width:93%; margin-top: 2%;"
+        mat-raised-button routerLink="/forgot-password">Forgot Password</button>
+      </mat-card-actions>
+    </mat-card>
+    </div>
+  </div>

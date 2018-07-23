@@ -1,0 +1,48 @@
+<mat-sidenav-container class="sidenav-container" *ngIf="authService.IsLoggedIn()">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">
+      <a routerLink="/" style="margin-left:25%;">
+        <!-- <img style="border-radius: 50%;" src="../../assets/Images/oms-text.png" /> -->
+        OMS
+      </a>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span style="flex: 1 1 auto;"></span>
+      <button class="DisplayUserInfo" mat-button (mouseover)="OpenUserMenu()" 
+      [matMenuTriggerFor]="usermenu">{{authService.GetUserDisplayName()}}
+      <mat-icon>expand_more</mat-icon>
+      </button>
+      <mat-menu #usermenu [overlapTrigger]="false" yPosition="below">
+        <button mat-menu-item routerLink="/view-profile">View Profile</button>
+        <button mat-menu-item routerLink="/change-password">Change Password</button>
+        <button mat-menu-item (click)="Logout()">Logout</button>
+      </mat-menu>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div *ngIf="!authService.IsLoggedIn()">
+  <router-outlet></router-outlet>
+</div>

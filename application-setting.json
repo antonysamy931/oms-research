@@ -1,0 +1,15 @@
+{
+    "SecureConnectionEnable":false,
+    "HttpDefaultPort":8880,
+    "HttpsDefaultPort":8443,
+    "smtp-host":"secure200.inmotionhosting.com",
+    "smtp-port":587,
+    "smtp-secure":false,
+    "smtp-gmail-enabled":false,
+    "from-address":"DoNotReply_Local@Merge.com",
+    "auth-password":"",
+    "crypto-key":"asdfghjklqwertyuizxcvbnm",
+    "mongo-server":"mongodb://localhost:27017/",
+    "med-database":"order-management-system",
+    "jwt-key": "asdf1234!@#$"
+}
